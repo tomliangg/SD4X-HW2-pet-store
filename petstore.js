@@ -27,22 +27,23 @@ function calculateFoodOrder(numAnimals, avgFood) {
  */
 function mostPopularDays(week) {
     if ((week == null) || (week.length==0)) return null;
-    let maxTraffic = week[0].traffic; // initialize the max traffic
+    var maxTraffic = week[0].traffic; // initialize the max traffic
 
     // use a for loop to find the max traffic
-    for (let day of week) {
+    for (var day of week) {
         if (day.traffic > maxTraffic) {
             maxTraffic = day.traffic;
         }
     }
 
-    let dayArr = [];
-    let i=0;
-    for (let day of week) {
+    var dayArr = [];
+    var i=0;
+    for (var day of week) {
         if (day.traffic == maxTraffic) {
             dayArr[i++] = day.name;
         }
     }
+    if (dayArr.length==1) return dayArr[0];
     return dayArr;
 }
 
@@ -59,9 +60,10 @@ function mostPopularDays(week) {
  *         empty array if the array's lengths are unequal or zero, or if any array is null.
  */
 function createAnimalObjects(names, types, breeds) {
-    if ((names.length==types.length) && (names.length==breeds.length) && (names.length!=0)) {
-        let arrAnimal = [];
-        for (let i=0; i<names.length; i++) {
+    if ((names==null) || (types==null) || (breeds==null)) return [];
+    else if ((names.length==types.length) && (names.length==breeds.length) && (names.length!=0)) {
+        var arrAnimal = [];
+        for (var i=0; i<names.length; i++) {
             arrAnimal[i] = new Animal(names[i], types[i], breeds[i]);
         }
         return arrAnimal;
