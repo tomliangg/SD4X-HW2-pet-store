@@ -9,7 +9,11 @@
  * 				 week, or -1 if the numAnimals or avgFood are less than 0 or non-numeric
  */
 function calculateFoodOrder(numAnimals, avgFood) {
-    // IMPLEMENT THIS FUNCTION!
+    if ((numAnimals >= 0) && (avgFood >= 0)) {
+        return (numAnimals * avgFood);
+    } else {
+        return -1;
+    }
 }
 
 /**
@@ -22,7 +26,25 @@ function calculateFoodOrder(numAnimals, avgFood) {
  * @return a string containing the name of the most popular day of the week if there is only one most popular day, and an array of the strings containing the names of the most popular days if there are more than one that are most popular
  */
 function mostPopularDays(week) {
-    // IMPLEMENT THIS FUNCTION!
+    if (week == null) return null;
+    var maxTraffic = week[0].traffic; // initialize the max traffic
+
+    // use a for loop to find the max traffic
+    for (var day in week) {
+        if (day.traffic > maxTraffic) {
+            maxTraffic = day.traffic;
+        }
+    }
+
+    var dayArr = [];
+    var i=0;
+    for (var day in week) {
+        if (day.traffic == maxTraffic) {
+            dayArr[i++] = day.name
+        }
+    }
+    return dayArr
+
 }
 
 
