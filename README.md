@@ -3,7 +3,7 @@
 <p>Below is the assignment description </p>
 <hr>
 
-Activity
+<h3>Activity</h3>
 
 The functions that you will implement in this assignment are all related to the operation of a pet store (as you’ll see later in the course, the SD4x instruction staff really likes animals!), where shoppers can purchase animals as pets.
 
@@ -18,13 +18,13 @@ createAnimalObjects: Given three arrays of equal length containing information a
 
 Your implementations are only expected to handle the “normal” operations of these functions, and any extra conditions listed above. You may think of or encounter other situations or inputs not described here, but you only need to consider the ones listed above for grading.
 
-One more important note:
+<h3>One more important note:</h3>
 
 Please do not change the names or lists of parameters for any of the functions we have provided, as these will be used by our tests during grading. Also, please do not change the function prototypes for the Weekday, Item, or Animal classes, as those are used by the grader as well.
 
 Be sure that all JavaScript is in petstore.js and that you have not created any additional files.
 
-Helpful Hints
+<h3>Helpful Hints</h3>
 
 Be sure that you’re able to run the “helloworld()” function in your browser’s JavaScript console before trying to implement the other functions, so that you know you have a development environment in which to work.
 
