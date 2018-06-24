@@ -9,7 +9,7 @@
  * 				 week, or -1 if the numAnimals or avgFood are less than 0 or non-numeric
  */
 function calculateFoodOrder(numAnimals, avgFood) {
-    if ((numAnimals >= 0) && (avgFood >= 0)) {
+    if ((Number(numAnimals) >= 0) && (Number(avgFood) >= 0)) {
         return (numAnimals * avgFood);
     } else {
         return -1;
@@ -26,25 +26,24 @@ function calculateFoodOrder(numAnimals, avgFood) {
  * @return a string containing the name of the most popular day of the week if there is only one most popular day, and an array of the strings containing the names of the most popular days if there are more than one that are most popular
  */
 function mostPopularDays(week) {
-    if (week == null) return null;
-    var maxTraffic = week[0].traffic; // initialize the max traffic
+    if ((week == null) || (week.length==0)) return null;
+    let maxTraffic = week[0].traffic; // initialize the max traffic
 
     // use a for loop to find the max traffic
-    for (var day in week) {
+    for (let day of week) {
         if (day.traffic > maxTraffic) {
             maxTraffic = day.traffic;
         }
     }
 
-    var dayArr = [];
-    var i=0;
-    for (var day in week) {
+    let dayArr = [];
+    let i=0;
+    for (let day of week) {
         if (day.traffic == maxTraffic) {
-            dayArr[i++] = day.name
+            dayArr[i++] = day.name;
         }
     }
-    return dayArr
-
+    return dayArr;
 }
 
 
@@ -60,7 +59,15 @@ function mostPopularDays(week) {
  *         empty array if the array's lengths are unequal or zero, or if any array is null.
  */
 function createAnimalObjects(names, types, breeds) {
-    // IMPLEMENT THIS FUNCTION!
+    if ((names.length==types.length) && (names.length==breeds.length) && (names.length!=0)) {
+        let arrAnimal = [];
+        for (let i=0; i<names.length; i++) {
+            arrAnimal[i] = new Animal(names[i], types[i], breeds[i]);
+        }
+        return arrAnimal;
+    } else {
+        return [];
+    }
 }
 
 /////////////////////////////////////////////////////////////////
@@ -104,4 +111,3 @@ function Animal (name, type, breed) {
 function helloworld() {
     return 'hello world!';
 }
-
